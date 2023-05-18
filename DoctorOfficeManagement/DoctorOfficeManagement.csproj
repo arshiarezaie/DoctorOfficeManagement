@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01270C7D-2B86-45E6-A460-8BA8C8BFCE86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DoctorOfficeManagement</RootNamespace>
+    <AssemblyName>DoctorOfficeManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>doctor.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\DataLayer\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\DataLayer\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ActionMaker.cs" />
+    <Compile Include="Classes\Identity.cs" />
+    <Compile Include="Classes\PDFgenerator.cs" />
+    <Compile Include="Classes\FormsTerminal\FormsTerminal.cs" />
+    <Compile Include="Classes\RtlMessageBox.cs" />
+    <Compile Include="Classes\ViewModels\PersonAndVisitViewModel.cs" />
+    <Compile Include="Classes\ViewModels\PersonViewModel.cs" />
+    <Compile Include="Classes\VisitTimeSpan.cs" />
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAddTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddTask.Designer.cs">
+      <DependentUpon>FormAddTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAddVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddVisit.Designer.cs">
+      <DependentUpon>FormAddVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCalculate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCalculate.Designer.cs">
+      <DependentUpon>FormCalculate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditPerson.Designer.cs">
+      <DependentUpon>FormEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEditVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditVisit.Designer.cs">
+      <DependentUpon>FormEditVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInsertPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInsertPayment.Designer.cs">
+      <DependentUpon>FormInsertPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormManagePersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormManagePersons.Designer.cs">
+      <DependentUpon>FormManagePersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormManageTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormManageTasks.Designer.cs">
+      <DependentUpon>FormManageTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormManageVisits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormManageVisits.Designer.cs">
+      <DependentUpon>FormManageVisits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPasswordHint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPasswordHint.Designer.cs">
+      <DependentUpon>FormPasswordHint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormResetPassword.Designer.cs">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectDate.Designer.cs">
+      <DependentUpon>FormSelectDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectFile.Designer.cs">
+      <DependentUpon>FormSelectFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectPerson.Designer.cs">
+      <DependentUpon>FormSelectPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectTask.Designer.cs">
+      <DependentUpon>FormSelectTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectUser.Designer.cs">
+      <DependentUpon>FormSelectUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelectVisit.Designer.cs">
+      <DependentUpon>FormSelectVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormShowDigitalFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShowDigitalFiles.Designer.cs">
+      <DependentUpon>FormShowDigitalFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSplashScreen.Designer.cs">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormViewImages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormViewImages.Designer.cs">
+      <DependentUpon>FormViewImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormViewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormViewUser.Designer.cs">
+      <DependentUpon>FormViewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVisitPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVisitPrice.Designer.cs">
+      <DependentUpon>FormVisitPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddTask.resx">
+      <DependentUpon>FormAddTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddVisit.fa-IR.resx">
+      <DependentUpon>FormAddVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddVisit.resx">
+      <DependentUpon>FormAddVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCalculate.resx">
+      <DependentUpon>FormCalculate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditPerson.resx">
+      <DependentUpon>FormEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditVisit.resx">
+      <DependentUpon>FormEditVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormInsertPayment.resx">
+      <DependentUpon>FormInsertPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormManagePersons.resx">
+      <DependentUpon>FormManagePersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormManageTasks.resx">
+      <DependentUpon>FormManageTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormManageVisits.resx">
+      <DependentUpon>FormManageVisits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPasswordHint.resx">
+      <DependentUpon>FormPasswordHint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormResetPassword.resx">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectDate.resx">
+      <DependentUpon>FormSelectDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectFile.resx">
+      <DependentUpon>FormSelectFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectPerson.resx">
+      <DependentUpon>FormSelectPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectTask.resx">
+      <DependentUpon>FormSelectTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectUser.resx">
+      <DependentUpon>FormSelectUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectVisit.resx">
+      <DependentUpon>FormSelectVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShowDigitalFiles.resx">
+      <DependentUpon>FormShowDigitalFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormViewImages.resx">
+      <DependentUpon>FormViewImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormViewUser.resx">
+      <DependentUpon>FormViewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVisitPrice.resx">
+      <DependentUpon>FormVisitPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{a5d118fd-5ea4-4651-a492-d81d5bc19038}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj">
+      <Project>{f577fa42-e30b-4d52-a9cb-e441dbfaf691}</Project>
+      <Name>UnitOfWork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinClipart.com_free-office-clipart_1640578.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calandar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Patent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\task.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluebar.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SVG-edit_logo.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editProfile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notepad_icon.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon-png-19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Secretary.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Secretary2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-arrow-png-36989.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-arrow-png-36989 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluetick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error-handling-windows-xp-error-logo-11563210401mwwnodn9yn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-green-white-and-red-map-greater-iran-map-flag-of-iran-iran-flag-leaf-area.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1532828.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kindpng_604225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NicePng_red-cross-logo-png_874647.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngaaa.com-1902186.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\390-3901233_retro-cartoon-camera-png-download-transparent-background-cartoon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aid-emergency-first-aid-kit-kit-medical-treatment-icon-logo-symbol-trademark-red-cross-transparent-png-1629714.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluetick1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-arrow-png-36989 - Copy %282%29 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-arrow-png-36989 - Copy %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinClipart.com_free-office-clipart_16405781.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calandar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select-all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor1.jpg" />
+    <None Include="Resources\Add2.png" />
+    <None Include="Resources\SVG-edit_logo.svg1.png" />
+    <None Include="Resources\Add1.png" />
+    <None Include="bin\Debug\Images\doctor - Copy.jpg" />
+    <Content Include="doctor.ico" />
+    <Content Include="Resources\SecretaryRED.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

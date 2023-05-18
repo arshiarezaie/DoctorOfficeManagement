@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbf5bed6ee214bc3887d02418455faa9" Name="Diagram1">
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.City" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.DigitalFile" Width="1.5" PointX="4.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.DoctorTask" Width="1.5" PointX="6.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.File" Width="1.5" PointX="2.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.ImagesOfFile" Width="1.5" PointX="2.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Province" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Task" Width="1.5" PointX="6.125" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_Cities_Provinces" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_DigitalFiles_Files" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_DoctorTasks_Tasks" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_ImagesOfFiles_Files" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.VisitPrice" Width="1.5" PointX="7.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Visit" Width="1.5" PointX="0.625" PointY="3.875" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_DoctorTasks_Visists" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Person" Width="1.5" PointX="0.625" PointY="0.5" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_People_Cities" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_DoctorTasks_People" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_Files_People" />
+        <AssociationConnector Association="DoctorOfficeManagementModel.FK_Visists_People" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Payment" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.Revenues" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.User" Width="1.5" PointX="8.375" PointY="3" />
+        <EntityTypeShape EntityType="DoctorOfficeManagementModel.UserAction" Width="1.5" PointX="10.625" PointY="3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
